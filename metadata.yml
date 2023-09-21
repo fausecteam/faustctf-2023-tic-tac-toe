@@ -1,0 +1,17 @@
+# Human-readable name of the service
+name: tic-tac-toe
+slug: tic-tac-toe
+authors:
+
+install:
+  container_images:
+    - faust.cs.fau.de:5000/tic-tac-toe
+
+checker:
+  script_path: checker/template.py
+  # Upper bound of how long the Checker Script takes to run (for a single team)
+  # Used for scheduling checks within a tick, executions taking longer *may* get terminated
+  max_duration: 60
+  debian_packages:
+    - python3-pwntools
+  pip_packages: []
